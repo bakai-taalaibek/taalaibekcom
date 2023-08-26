@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  min-height: 7rem;
+  box-shadow: 0 0 0.5rem 0 hsla(0, 0%, 1%, 0.3);
+
+  &--desktop {
+    display: none;
+  }
+  
+  &__menuButton {
+    margin-left: 5rem;
+  }
+}
+
+@media (min-width: 40rem) {
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 7rem;
+    box-shadow: 0 0 0.5rem 0 hsla(0, 0%, 1%, 0.3);
+  
+    &--mobile {
+      display: none;
+    }
+    
+    &__container {
+      max-width: 120rem;
+      width: 120rem;
+      display: flex;
+      justify-content: space-between;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  
+    &__nav {
+      display: flex;
+      gap: 3rem;
+    }
+  
+    &__rightGroup {
+      display: flex;
+    }
+
+    &__languages {
+      display: flex;
+    }
+
+    &__theme {
+      display: flex
+    }
+  }
+}
