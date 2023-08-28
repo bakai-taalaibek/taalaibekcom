@@ -1,16 +1,85 @@
 .header {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  min-height: 7rem;
+  --menuButtonDecorationGap: 0.8rem;
+  display: grid;
+  grid-template-rows: var(--headerLineHeight) 0fr;
   box-shadow: 0 0 0.5rem 0 hsla(0, 0%, 1%, 0.3);
+  transition: 200ms;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  // background: hsla(0, 0, 0, 0.1);
 
   &--desktop {
     display: none;
   }
+
+  &--mobileVisible {
+    grid-template-rows: var(--headerLineHeight) 1fr;
+    transition: 300ms;
+
+    & .header__menuButtonDecoration {
+      background: transparent;
+      transition: 50ms;
+    }
+
+    & .header__menuButtonDecoration:before {
+      transform: rotate(-315deg);
+      transition: 200ms linear;
+      top: 0;
+    }
+
+    & .header__menuButtonDecoration:after {
+      transform: rotate(315deg);
+      transition: 200ms linear;
+      top: 0;
+    }
+  }
   
   &__menuButton {
     margin-left: 5rem;
+    cursor: pointer;
+    min-height: var(--headerLineHeight);
+    display: flex;
+    align-items: center;
+  }
+
+  &__menuButtonDecoration,
+  &__menuButtonDecoration:before,
+  &__menuButtonDecoration:after {
+    height: 3px;
+    width: 3.5rem;
+    background: black;
+  }
+
+  &__menuButtonDecoration {
+    position: relative;
+    transition: 200ms;
+  }
+
+  &__menuButtonDecoration:before {
+    position: absolute;
+    content: '';
+    top: calc(var(--menuButtonDecorationGap) * -1);
+    transition: 100ms;
+  }
+
+  &__menuButtonDecoration:after {
+    position: absolute;
+    content: '';
+    top: var(--menuButtonDecorationGap);
+    transition: 100ms;
+  }
+
+
+  &__mobileNav {
+    overflow: hidden;
+  }
+
+  &__mobileNavItem {
+    min-height: var(--headerLineHeight);
+    line-height: var(--headerLineHeight);
+    margin-left: 5rem;
+    cursor: pointer;
   }
 }
 
@@ -19,7 +88,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 7rem;
+    min-height: var(--headerLineHeight);
     box-shadow: 0 0 0.5rem 0 hsla(0, 0%, 1%, 0.3);
   
     &--mobile {
