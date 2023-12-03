@@ -4,10 +4,11 @@
   grid-template-rows: var(--headerLineHeight) 0fr;
   box-shadow: 0 0 0.5rem 0 hsla(0, 0%, 1%, 0.3);
   transition: 200ms;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
-  // background: hsla(0, 0, 0, 0.1);
+  z-index: 1;
+  background-color: white;
 
   &--desktop {
     display: none;
@@ -34,7 +35,7 @@
       top: 0;
     }
   }
-  
+
   &__menuButton {
     margin-left: 5rem;
     cursor: pointer;
@@ -58,18 +59,17 @@
 
   &__menuButtonDecoration:before {
     position: absolute;
-    content: '';
+    content: "";
     top: calc(var(--menuButtonDecorationGap) * -1);
     transition: 100ms;
   }
 
   &__menuButtonDecoration:after {
     position: absolute;
-    content: '';
+    content: "";
     top: var(--menuButtonDecorationGap);
     transition: 100ms;
   }
-
 
   &__mobileNav {
     overflow: hidden;
@@ -90,25 +90,24 @@
     align-items: center;
     min-height: var(--headerLineHeight);
     box-shadow: 0 0 0.5rem 0 hsla(0, 0%, 1%, 0.3);
-  
+
     &--mobile {
       display: none;
     }
-    
+
     &__container {
       max-width: 120rem;
       width: 120rem;
       display: flex;
       justify-content: space-between;
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding-inline: 4rem;
     }
-  
+
     &__nav {
       display: flex;
       gap: 3rem;
     }
-  
+
     &__rightGroup {
       display: flex;
     }
@@ -118,7 +117,7 @@
     }
 
     &__theme {
-      display: flex
+      display: flex;
     }
   }
 }

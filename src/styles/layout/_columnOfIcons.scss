@@ -1,0 +1,29 @@
+.column-of-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__icon {
+    aspect-ratio: 1;
+    background-color: white;
+    border-radius: 7px;
+    padding: 5px;
+  }
+}
+
+.animate-slider {
+  animation: slide 60s linear infinite;
+
+  &--reverse {
+    animation-direction: reverse;
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-50% - 4px));
+  }
+}
