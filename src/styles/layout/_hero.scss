@@ -1,37 +1,49 @@
 .hero {
   min-height: 100svh;
   padding-top: var(--headerLineHeight);
-  background-color: rgb(244, 244, 244);
+  // background-color: rgb(244, 244, 244);
+  background: linear-gradient(20deg, #f6f4f1, #fcfbf9);
   display: flex;
   flex-direction: column;
-  // justify-content: space-around;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
   overflow-x: hidden;
 
   &__greetings {
-    margin-top: 5svh;
+    margin-bottom: 3svh;
     display: flex;
     gap: 16px;
     white-space: nowrap;
     font-family: Montserrat;
     width: fit-content;
+    opacity: 0.6;
   }
   &__main {
-    margin-block: auto;
+    flex-grow: 1;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
-    padding-inline: 20px;
+    height: max;
+    row-gap: 40px;
+    column-gap: 30px;
+    padding: 20px clamp(20px, 5vw, 80px) 25px;
+    align-content: space-evenly;
+    align-items: center;
+    width: 100%;
   }
 
   .introduction {
-    font-size: 70px;
+    font-size: clamp(30px, 30px + 4vw, 70px);
     font-family: "Archivo Black";
+    line-height: 1.1;
+
+    & p {
+      background-image: linear-gradient(-30deg, #191919, #474747, #424242);
+      background-clip: text;
+      color: transparent;
+    }
 
     &--smaller {
-      font-size: 36px;
+      font-size: clamp(15px, 15px + 2.1vw, 36px);
       margin-top: 10px;
     }
 
@@ -44,9 +56,9 @@
       );
       border: none;
       border-radius: 17px;
-      padding: 7px 30px;
+      padding: 7px clamp(15px, 15px + 1vw, 30px);
       color: white;
-      font-size: 20px;
+      font-size: clamp(8px, 8px + 0.9vw, 20px);
       font-family: Roboto;
       cursor: pointer;
     }
@@ -54,13 +66,19 @@
 
   .rectangle {
     background-color: white;
-    border-radius: 20px;
-    width: calc(20rem + 15vw);
-    height: calc(20rem + 15vw);
+    border-radius: 3px;
+    width: clamp(20rem, 20rem + 15vw, 40rem);
+    height: clamp(18rem, 18rem + 15vw, 36rem);
     aspect-ratio: 1;
     overflow: hidden;
-    background-color: pink;
-    box-shadow: 0 0 0 6px white, 0 0 15px 5px rgb(149, 149, 149);
+    background: linear-gradient(
+      120deg,
+      rgb(30, 137, 204),
+      rgb(37, 171, 255) 49%,
+      rgb(62, 118, 228) 100%
+    );
+    box-shadow: 0 0 15px 3px rgb(216, 216, 216);
+    outline: 5px solid white;
     transition: 0.1s;
 
     &:hover {
@@ -72,7 +90,7 @@
       display: flex;
       gap: 7px;
       width: 119%;
-      transform: rotate(-15deg) translateX(7.7%) translateY(-30px);
+      transform: rotate(-15deg) translateX(8.5%) translateY(-30px);
     }
   }
 }

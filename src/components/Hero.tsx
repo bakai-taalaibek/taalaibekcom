@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useState } from "react"
 import { IconBash } from "../icons/IconBash"
 import { IconCSS } from "../icons/IconCSS"
 import { IconDocker } from "../icons/IconDocker"
@@ -75,54 +75,60 @@ const colors = [
 ]
 
 export const Hero = () => {
-  const colorRef = useRef(0)
+  const [isSliderActive, setIsSliderActive] = useState(true)
+  const [isScrollerActive, setIsScrollerActive] = useState(true)
+  let currentColor = 0
+
   const variateColors = () => {
-    colorRef.current = colorRef.current + 1
-    return colors[colorRef.current % colors.length]
+    currentColor = currentColor + 1
+    return colors[currentColor % colors.length]
   }
-  console.log(
-    variateColors(),
-    colorRef.current,
-    colors[greetings.length % colorRef.current]
-  )
 
   return (
-    <>
-      <article className="hero">
-        <div className="hero__greetings animate-scroller">
-          {greetings.map((item, index) => (
-            <p key={index} style={{ color: variateColors() }}>
-              {item}
-            </p>
-          ))}
-          {greetings.map((item, index) => (
-            <p key={index * 2} style={{ color: variateColors() }}>
-              {item}
-            </p>
-          ))}
+    <article className="hero">
+      <div className="hero__main">
+        <div className="introduction">
+          <p>Hi!</p>
+          <p>I am Bakai,</p>
+          <p className="introduction--smaller">a Front-End developer</p>
+          <button className="introduction__download-resume">
+            Download resume
+          </button>
         </div>
-        <div className="hero__main">
-          <div className="introduction">
-            <p>Hi!</p>
-            <p>I am Bakai,</p>
-            <p className="introduction--smaller">a Front-End developer</p>
-            <button className="introduction__download-resume">
-              Download resume
-            </button>
-          </div>
-          <div className="rectangle">
-            <div className="rectangle__rotated-wrapper">
-              {rows.map((item, index) => (
-                <ColumnOfIcons
-                  key={index}
-                  icons={item}
-                  reverse={index % 2 === 0}
-                />
-              ))}
-            </div>
+
+        <div
+          className="rectangle"
+          onClick={() => setIsSliderActive(!isSliderActive)}
+        >
+          <div className="rectangle__rotated-wrapper">
+            {rows.map((item, index) => (
+              <ColumnOfIcons
+                isSliderActive={isSliderActive}
+                key={index}
+                icons={item}
+                reverse={index % 2 === 0}
+              />
+            ))}
           </div>
         </div>
-      </article>
-    </>
+      </div>
+      <div
+        className={`hero__greetings animate-scroller ${
+          !isScrollerActive && "animation-paused"
+        }`}
+        onClick={() => setIsScrollerActive(!isScrollerActive)}
+      >
+        {greetings.map((item, index) => (
+          <p key={index} style={{ color: variateColors() }}>
+            {item}
+          </p>
+        ))}
+        {greetings.map((item, index) => (
+          <p key={index * 2} style={{ color: variateColors() }}>
+            {item}
+          </p>
+        ))}
+      </div>
+    </article>
   )
 }

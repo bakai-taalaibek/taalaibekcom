@@ -18,6 +18,9 @@
     animation-direction: reverse;
   }
 }
+.animation-paused {
+  animation-play-state: paused;
+}
 
 @keyframes slide {
   from {

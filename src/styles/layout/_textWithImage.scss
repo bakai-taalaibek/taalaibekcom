@@ -1,0 +1,26 @@
+.textWithImage {
+  min-height: 100svh;
+  padding-top: var(--headerLineHeight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-height: 400px;
+    gap: 40px;
+  }
+  &__text {
+    max-width: 400px;
+  }
+
+  &__mainText {
+  }
+  &__image {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+  }
+}
