@@ -90,7 +90,7 @@ export const Hero = () => {
         <div className="introduction">
           <p>Hi!</p>
           <p>I am Bakai,</p>
-          <p className="introduction--smaller">a Front-End developer</p>
+          <p className="introduction--smaller">Front-End developer</p>
           <button className="introduction__download-resume">
             Download resume
           </button>

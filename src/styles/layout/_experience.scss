@@ -1,6 +1,7 @@
 .experience {
   min-height: 100svh;
   background-color: rgb(255, 254, 248);
+  font-family: var(--defaultFont);
 
   &__breadCrumb {
     position: sticky;
