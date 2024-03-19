@@ -20,14 +20,9 @@ export const TextWithImageScreen = ({
           <div className="textWithImage__mainText">{mainText}</div>
           <div className="textWithImage__timePeriod">{timePeriod}</div>
         </div>
-        <div className="textWithImage__imageGroup">
-          <img
-            className="textWithImage__image"
-            src={image}
-            alt="Illustration to text"
-          />
-          {url && <a href={url}>{urlText}</a>}
-        </div>
+        <a href={url} className="textWithImage__image">
+          <img src={image} alt={urlText} />
+        </a>
       </div>
     </div>
   )

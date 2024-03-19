@@ -1,0 +1,24 @@
+.breadCrumb {
+  position: sticky;
+  top: var(--headerLineHeight);
+  width: 100%;
+  background-color: hsl(200, 100, 80);
+  // background-color: white;
+  // border-bottom: 2px solid hsl(200, 100, 70);
+  // padding-top: 15px;
+  // padding-bottom: 15px;
+  color: rgb(65, 65, 65);
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+
+  &__content {
+    padding-inline: var(--defaultInlinePadding);
+    max-width: 120rem;
+    margin: auto;
+  }
+}
+
+.breadCrumbFiller {
+  height: 73px;
+}
