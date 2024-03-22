@@ -2,7 +2,7 @@ import { TextWithImageScreen } from "./TextWithImageBlock"
 
 export const Experience = () => {
   return (
-    <article className="experience">
+    <article id="experience" className="experience">
       <div className="breadCrumb">
         <div className="breadCrumb__content">Experience</div>
       </div>

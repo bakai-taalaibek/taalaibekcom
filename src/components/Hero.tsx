@@ -85,7 +85,7 @@ export const Hero = () => {
   }
 
   return (
-    <article className="hero">
+    <article id="hero" className="hero">
       <div className="hero__main">
         <div className="introduction">
           <p>Hi!</p>

@@ -1,12 +1,9 @@
 .breadCrumb {
+  z-index: 2;
   position: sticky;
   top: var(--headerLineHeight);
   width: 100%;
-  background-color: hsl(200, 100, 80);
-  // background-color: white;
-  // border-bottom: 2px solid hsl(200, 100, 70);
-  // padding-top: 15px;
-  // padding-bottom: 15px;
+  background-color: hsl(200, 100%, 80%);
   color: rgb(65, 65, 65);
   font-weight: 500;
   height: 40px;
@@ -21,4 +18,14 @@
 
 .breadCrumbFiller {
   height: 73px;
+}
+
+@media (min-width: 40rem) {
+  .breadCrumb {
+    display: none;
+  }
+
+  .breadCrumbFiller {
+    display: none;
+  }
 }

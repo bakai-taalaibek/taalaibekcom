@@ -1,3 +1,8 @@
 .text {
   font-family: var(--defaultFont), sans-serif;
+
+  &--highlighted {
+    color: rgb(29, 153, 255);
+    font-weight: 500;
+  }
 }
