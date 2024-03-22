@@ -27,7 +27,7 @@ export const Experience = () => {
         image="/rsk.jpg"
       />
       <TextWithImageScreen
-        mainText="Developed Full-Stack applications independently and collaboratively at internship hosted by Makers"
+        mainText="Developed Full-Stack applications independently and collaboratively at an internship hosted by Makers"
         timePeriod="March - May 2023"
         image="/makers.jpg"
         urlText="Makers home page"

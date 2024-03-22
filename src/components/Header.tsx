@@ -1,10 +1,9 @@
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { isElementDominant } from "../lib/helpers"
 
 const Header = () => {
   const [mobileNav, setMobileNav] = useState(false)
   const [dominantElement, setDominantElement] = useState<string | null>(null)
-  const scrollDebounce = useRef<boolean>(true)
   const handleMenu = () => {
     setMobileNav(!mobileNav)
   }
@@ -21,7 +20,6 @@ const Header = () => {
       { name: "education", dominance: isElementDominant(education) },
       { name: "contacts", dominance: isElementDominant(contacts) },
     ]
-
     elements.sort((a, b) => {
       return b.dominance - a.dominance
     })
@@ -35,12 +33,16 @@ const Header = () => {
     }
   }, [])
 
+  let timer: number | null = null
   useEffect(() => {
     hero = document.getElementById("hero")
     experience = document.getElementById("experience")
     education = document.getElementById("education")
     contacts = document.getElementById("contacts")
-    window.addEventListener("scroll", isElementDominantMemo)
+    window.addEventListener("scroll", () => {
+      if (timer !== null) clearTimeout(timer)
+      timer = setTimeout(isElementDominantMemo, 30)
+    })
   }, [])
 
   return (
