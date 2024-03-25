@@ -3,19 +3,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--defaultFont);
+  font-size: 17px;
 
   &__center {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    max-height: 400px;
-    gap: 20px;
+    height: max-content;
+    // max-height: 400px;
+    column-gap: 20px;
+    row-gap: 30px;
   }
   &__textGroup {
     max-width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 7px;
+  }
+  &__tags {
+    color: var(--mainAccentColorLighter);
   }
   &__timePeriod {
     color: rgb(146, 146, 146);
@@ -28,6 +36,7 @@
     gap: 5px;
     max-width: 300px;
     transition: 0.1s;
+    height: max-content;
 
     & :hover {
       transform: scale(1.02);

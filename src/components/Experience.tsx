@@ -13,6 +13,7 @@ export const Experience = () => {
         image="/fortylines.jpeg"
         urlText="Fortylines home page"
         url="https://fortylines.io/home"
+        tags={["Next", "Typescript", "Chakra UI"]}
       />
       <TextWithImageScreen
         mainText="Developed an online recruiting service application at DevsFactory"
@@ -20,11 +21,13 @@ export const Experience = () => {
         image="/devsfactory.jpg"
         urlText="DevsFactory instagram page"
         url="https://www.instagram.com/devsfactorykg/"
+        tags={["React", "Typescript", "SCSS"]}
       />
       <TextWithImageScreen
         mainText="Awarded 1st place in an internship hosted by RSK Bank Kyrgyzstan for developing an online queue system"
         timePeriod="June - July 2023"
         image="/rsk.jpg"
+        tags={["React", "JavaScript", "Tailwind"]}
       />
       <TextWithImageScreen
         mainText="Developed Full-Stack applications independently and collaboratively at an internship hosted by Makers"
@@ -32,6 +35,7 @@ export const Experience = () => {
         image="/makers.jpg"
         urlText="Makers home page"
         url="https://makers.kg/"
+        tags={["React", "Node", "Express"]}
       />
     </article>
   )

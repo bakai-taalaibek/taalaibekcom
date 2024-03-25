@@ -1,6 +1,7 @@
-import { Experience } from "./components/Experience";
-import Header from "./components/Header";
-import { Hero } from "./components/Hero";
+import { Education } from "./components/Education"
+import { Experience } from "./components/Experience"
+import Header from "./components/Header"
+import { Hero } from "./components/Hero"
 
 function App() {
   return (
@@ -9,9 +10,10 @@ function App() {
       <main>
         <Hero />
         <Experience />
+        <Education />
       </main>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

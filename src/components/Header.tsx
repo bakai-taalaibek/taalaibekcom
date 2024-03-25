@@ -13,6 +13,18 @@ const Header = () => {
   let education: Element | null = null
   let contacts: Element | null = null
 
+  let timer: number | null = null
+  useEffect(() => {
+    hero = document.getElementById("hero")
+    experience = document.getElementById("experience")
+    education = document.getElementById("education")
+    contacts = document.getElementById("contacts")
+    window.addEventListener("scroll", () => {
+      if (timer !== null) clearTimeout(timer)
+      timer = setTimeout(isElementDominantMemo, 30)
+    })
+  }, [])
+
   const isElementDominantMemo = useCallback(() => {
     const elements = [
       { name: "hero", dominance: isElementDominant(hero) },
@@ -31,18 +43,6 @@ const Header = () => {
     ) {
       setDominantElement(newDominantElement.name)
     }
-  }, [])
-
-  let timer: number | null = null
-  useEffect(() => {
-    hero = document.getElementById("hero")
-    experience = document.getElementById("experience")
-    education = document.getElementById("education")
-    contacts = document.getElementById("contacts")
-    window.addEventListener("scroll", () => {
-      if (timer !== null) clearTimeout(timer)
-      timer = setTimeout(isElementDominantMemo, 30)
-    })
   }, [])
 
   return (

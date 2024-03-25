@@ -2,7 +2,7 @@
   font-family: var(--defaultFont), sans-serif;
 
   &--highlighted {
-    color: rgb(29, 153, 255);
+    color: var(--mainAccentColor);
     font-weight: 500;
   }
 }
