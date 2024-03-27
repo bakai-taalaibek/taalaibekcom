@@ -1,0 +1,11 @@
+.education {
+  min-height: 100svh;
+  background: linear-gradient(
+    hsl(200, 100%, 93%) 0%,
+    hsl(200, 100%, 93%) var(--breadCrumbHeight),
+    hsl(200, 100%, 98%) 150px,
+    hsl(200, 100%, 98%) 100%
+  );
+}
+
+

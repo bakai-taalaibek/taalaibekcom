@@ -1,6 +1,9 @@
 .experience {
   min-height: 100svh;
-  background-color: rgb(255, 254, 248);
-  font-family: var(--defaultFont);
-  font-size: 17px;
+  background: linear-gradient(
+    hsl(43, 100%, 93%) 0%,
+    hsl(43, 100%, 93%) var(--breadCrumbHeight),
+    hsl(43, 100%, 98%) 150px,
+    hsl(43, 100%, 98%) 100%
+  );
 }
