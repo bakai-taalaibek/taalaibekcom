@@ -1,3 +1,4 @@
+import { Certificates } from "./Certificates"
 import { TextWithImageScreen } from "./TextWithImageBlock"
 
 export const Education = () => {
@@ -11,11 +12,12 @@ export const Education = () => {
         from Kyrgyz-Russian Slavic
         University, Faculty of
         Economics"
-        timePeriod="2017 - 2022"
+        timePeriod="2007 - 2012"
         image="/krsu.jpg"
         urlText="KRSU homepage"
         url="https://www.krsu.edu.kg/"
       />
+      <Certificates />
     </article>
   )
 }

@@ -1,9 +1,14 @@
 .experience {
-  min-height: 100svh;
   background: linear-gradient(
     hsl(43, 100%, 93%) 0%,
     hsl(43, 100%, 93%) var(--breadCrumbHeight),
     hsl(43, 100%, 98%) 150px,
     hsl(43, 100%, 98%) 100%
   );
+}
+
+@media (min-width: 40rem) {
+  .experience {
+    background: hsl(43, 100%, 98%);
+  }
 }

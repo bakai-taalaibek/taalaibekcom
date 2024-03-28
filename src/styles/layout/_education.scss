@@ -1,11 +1,27 @@
 .education {
-  min-height: 100svh;
   background: linear-gradient(
     hsl(200, 100%, 93%) 0%,
     hsl(200, 100%, 93%) var(--breadCrumbHeight),
     hsl(200, 100%, 98%) 150px,
     hsl(200, 100%, 98%) 100%
   );
+
+  .certificates {
+    min-height: calc(
+      100svh - var(--breadCrumbHeight) - var(--headerLineHeight)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
+@media (min-width: 40rem) {
+  .education {
+    background: hsl(200, 100%, 98%);
 
+    .certificates {
+      min-height: calc(100svh - var(--headerLineHeight));
+    }
+  }
+}

@@ -1,5 +1,5 @@
 .textWithImage {
-  min-height: calc(100svh - var(--headerLineHeight) - 40px);
+  min-height: calc(100svh - var(--headerLineHeight) - var(--breadCrumbHeight));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +12,6 @@
     flex-direction: row;
     justify-content: center;
     height: max-content;
-    // max-height: 400px;
     column-gap: 20px;
     row-gap: 30px;
   }
