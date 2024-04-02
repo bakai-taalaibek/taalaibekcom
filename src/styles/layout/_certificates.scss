@@ -1,0 +1,10 @@
+.certificates {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__rowOfImages {
+    display: flex;
+    gap: 10px;
+  }
+}
