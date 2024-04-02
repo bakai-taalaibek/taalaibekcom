@@ -1,3 +1,4 @@
+import { Contacts } from "./components/Contacts"
 import { Education } from "./components/Education"
 import { Experience } from "./components/Experience"
 import Header from "./components/Header"
@@ -11,6 +12,7 @@ function App() {
         <Hero />
         <Experience />
         <Education />
+        <Contacts />
       </main>
     </>
   )
