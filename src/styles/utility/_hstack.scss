@@ -1,0 +1,8 @@
+.hstack {
+  display: flex;
+  gap: 10px;
+
+  &--vcentered {
+    align-items: center;
+  }
+}

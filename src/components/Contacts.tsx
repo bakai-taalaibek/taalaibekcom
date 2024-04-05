@@ -1,3 +1,8 @@
+import { IconEmail } from "../icons/IconEmail"
+import { IconLinkedIn } from "../icons/IconLinkedIn"
+import { IconPhone } from "../icons/IconPhone"
+import { IconTelegram } from "../icons/IconTelegram"
+
 export const Contacts = () => {
   return (
     <div id="contacts" className="contacts">
@@ -6,11 +11,34 @@ export const Contacts = () => {
       <div className="contacts__centered columns__container">
         <div className="columns__column">
           <p className="contacts__title">Feel free to contact me:</p>
-          <div className="contactEntriesBlock">
-            <p>Email: bakai.pochat@gmail.com</p>
-            <p>Phone number: +996 500 391990</p>
-            <p>Telegram: t.me/bakai_abc</p>
-            <p>LinkedIn: linkedin.com/in/bakai-taalaibek</p>
+          <div className="contactEntries">
+            <div className="hstack hstack--vcentered">
+              <IconEmail width="15px" height="max-content" />
+              <a className="link" href="mailto:bakai.pochta@gmail.com">
+                bakai.pochta@gmail.com
+              </a>
+            </div>
+            <div className="hstack hstack--vcentered">
+              <IconPhone width="15px" height="max-content" />
+              <a className="link" href="https://wa.me/996500391990">
+                +996 500 391990
+              </a>
+            </div>
+            <div className="hstack hstack--vcentered">
+              <IconTelegram width="15px" height="max-content" />
+              <a className="link" href="https://t.me/bakai_abc">
+                t.me/bakai_abc
+              </a>
+            </div>
+            <div className="hstack hstack--vcentered">
+              <IconLinkedIn width="15px" height="max-content" />
+              <a
+                className="link"
+                href="https://linkedin.com/in/bakai-taalaibek"
+              >
+                linkedin.com/in/bakai-taalaibek
+              </a>
+            </div>
           </div>
         </div>
         <div className="columns__column">
