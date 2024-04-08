@@ -1,9 +1,19 @@
+import { useState } from "react"
 import { IconEmail } from "../icons/IconEmail"
 import { IconLinkedIn } from "../icons/IconLinkedIn"
 import { IconPhone } from "../icons/IconPhone"
 import { IconTelegram } from "../icons/IconTelegram"
 
 export const Contacts = () => {
+  const [name, setName] = useState("")
+  const [comment, setComment] = useState("")
+
+  const submitComment = () => {
+    alert(`${name}, ${comment}`)
+    setName("")
+    setComment("")
+  }
+
   return (
     <div id="contacts" className="contacts">
       <div className="contacts__upper"></div>
@@ -43,7 +53,25 @@ export const Contacts = () => {
         </div>
         <div className="columns__column">
           <p className="contacts__title">Or leave a comment below:</p>
-          <p>form</p>
+          <div className="form">
+            <p>Name</p>
+            <input
+              className="input mb-10"
+              placeholder="Your name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+            <p>Comment</p>
+            <textarea
+              className="textarea mb-10"
+              placeholder="Leave your comment here"
+              value={comment}
+              onChange={(event) => setComment(event.target.value)}
+            />
+            <button className="button" onClick={submitComment}>
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,11 @@
+.input {
+  border-radius: 3px;
+  border: 1px solid gray;
+  height: 30px;
+  padding-inline: 8px;
+
+  &:focus-visible {
+    border: 1px solid blue;
+    outline: none;
+  }
+}
