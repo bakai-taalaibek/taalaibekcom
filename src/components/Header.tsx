@@ -50,34 +50,38 @@ const Header = () => {
       <header className="header header--desktop">
         <div className="header__container">
           <nav className="header__nav">
-            <p
-              className={`text ${
-                dominantElement === "hero" && "text--highlighted"
+            <a
+              href="#hero"
+              className={`text anchor ${
+                dominantElement === "hero" && "anchor--highlighted"
               }`}
             >
               Home
-            </p>
-            <p
-              className={`text ${
-                dominantElement === "experience" && "text--highlighted"
+            </a>
+            <a
+              href="#experience"
+              className={`text anchor ${
+                dominantElement === "experience" && "anchor--highlighted"
               }`}
             >
               Experience
-            </p>
-            <p
-              className={`text ${
-                dominantElement === "education" && "text--highlighted"
+            </a>
+            <a
+              href="#education"
+              className={`text anchor ${
+                dominantElement === "education" && "anchor--highlighted"
               }`}
             >
               Education
-            </p>
-            <p
-              className={`text ${
-                dominantElement === "contacts" && "text--highlighted"
+            </a>
+            <a
+              href="#contacts"
+              className={`text anchor ${
+                dominantElement === "contacts" && "anchor--highlighted"
               }`}
             >
               Contacts
-            </p>
+            </a>
           </nav>
           <div className="header__rightGroup">
             <div className="header__languages">
@@ -103,10 +107,42 @@ const Header = () => {
         </div>
 
         <nav className="header__mobileNav">
-          <p className="header__mobileNavItem text">Home</p>
+          <a
+            href="#hero"
+            className={`header__mobileNavItem text anchor ${
+              dominantElement === "hero" && "anchor--highlighted"
+            }`}
+          >
+            Home
+          </a>
+          <a
+            href="#experience"
+            className={`header__mobileNavItem text anchor ${
+              dominantElement === "experience" && "anchor--highlighted"
+            }`}
+          >
+            Experience
+          </a>
+          <a
+            href="#education"
+            className={`header__mobileNavItem text anchor ${
+              dominantElement === "education" && "anchor--highlighted"
+            }`}
+          >
+            Education
+          </a>
+          <a
+            href="#contacts"
+            className={`header__mobileNavItem text anchor ${
+              dominantElement === "contacts" && "anchor--highlighted"
+            }`}
+          >
+            Contacts
+          </a>
+          {/* <p className="header__mobileNavItem text">Home</p>
           <p className="header__mobileNavItem text">Experience</p>
           <p className="header__mobileNavItem text">Education</p>
-          <p className="header__mobileNavItem text">Contacts</p>
+          <p className="header__mobileNavItem text">Contacts</p> */}
         </nav>
       </header>
     </>

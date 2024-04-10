@@ -1,0 +1,17 @@
+.anchor {
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &--highlighted {
+    color: var(--mainAccentColor);
+    font-weight: 500;
+
+    &:visited {
+      color: var(--mainAccentColor);
+      font-weight: 500;
+    }
+  }
+}
