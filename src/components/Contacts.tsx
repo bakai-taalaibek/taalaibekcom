@@ -56,7 +56,7 @@ export const Contacts = () => {
           <div className="form">
             <p>Name</p>
             <input
-              className="input mb-10"
+              className="input mb-5"
               placeholder="Your name"
               value={name}
               onChange={(event) => setName(event.target.value)}

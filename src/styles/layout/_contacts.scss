@@ -35,8 +35,10 @@
 
   .columns {
     &__container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      row-gap: 20px;
       padding-top: 50px;
     }
 
