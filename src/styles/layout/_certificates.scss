@@ -3,8 +3,10 @@
   flex-direction: column;
   gap: 20px;
 
-  &__rowOfImages {
+  &__groupOfImages {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
   }
 }
