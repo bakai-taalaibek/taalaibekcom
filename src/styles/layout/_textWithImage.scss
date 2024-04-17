@@ -48,5 +48,7 @@
   .textWithImage {
     min-height: 100svh;
     padding-top: var(--headerLineHeight);
+
+    scroll-snap-align: center;
   }
 }
