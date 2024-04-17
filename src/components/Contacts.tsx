@@ -16,6 +16,9 @@ export const Contacts = () => {
 
   return (
     <div id="contacts" className="contacts">
+      <div className="breadCrumb breadCrumb--contacts">
+        <div className="breadCrumb__content">Contacts</div>
+      </div>
       <div className="contacts__upper"></div>
       <div className="contacts__lower"></div>
       <div className="contacts__centered columns__container">

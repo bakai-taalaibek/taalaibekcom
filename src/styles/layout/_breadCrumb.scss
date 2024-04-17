@@ -21,6 +21,13 @@
     );
   }
 
+  &--contacts {
+    background: linear-gradient(
+      hsl(150, 100%, 91%) 0%,
+      hsl(150, 100%, 93%) 100%
+    );
+  }
+
   &__content {
     padding-inline: var(--defaultInlinePadding);
     max-width: 120rem;
