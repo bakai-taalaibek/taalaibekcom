@@ -58,8 +58,13 @@
 
 @media (min-width: 40rem) {
   .contacts {
-    background: hsl(200, 100%, 98%);
+    &__upper {
+      height: 65%;
+    }
+    &__centered {
+      top: calc(50% + var(--headerLineHeight) / 2);
+    }
 
-    scroll-snap-align: center;
+    background: hsl(200, 100%, 98%);
   }
 }
