@@ -28,6 +28,7 @@ export const Experience = () => {
         timePeriod="June - July 2023"
         image="/rsk.jpg"
         tags={["React", "JavaScript", "Tailwind"]}
+        isImageClickable={true}
       />
       <TextWithImageBlock
         mainText="Developed Full-Stack applications independently and collaboratively at an internship hosted by Makers"

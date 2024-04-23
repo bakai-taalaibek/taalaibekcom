@@ -1,3 +1,10 @@
+import { Gallery, Item } from "react-photoswipe-gallery"
+
+const options = {
+  zoom: false,
+  secondaryZoomLevel: "fit" as const,
+}
+
 type TProps = {
   mainText: string
   timePeriod: string
@@ -5,6 +12,7 @@ type TProps = {
   tags?: string[]
   urlText?: string
   url?: string
+  isImageClickable?: boolean
 }
 
 export const TextWithImageScreen = ({
@@ -14,6 +22,7 @@ export const TextWithImageScreen = ({
   tags,
   urlText,
   url,
+  isImageClickable,
 }: TProps) => {
   return (
     <div className="textWithImage">
@@ -33,7 +42,28 @@ export const TextWithImageScreen = ({
           <div className="textWithImage__timePeriod">{timePeriod}</div>
         </div>
         <a href={url} className="textWithImage__image">
-          <img src={image} alt={urlText} />
+          {isImageClickable ? (
+            <Gallery id="rsk" options={options}>
+              <Item
+                original={image}
+                thumbnail={image}
+                width="1132"
+                height="800"
+              >
+                {({ ref, open }) => (
+                  <img
+                    className="clickableImage__image"
+                    alt={urlText}
+                    ref={ref}
+                    onClick={open}
+                    src={image}
+                  />
+                )}
+              </Item>
+            </Gallery>
+          ) : (
+            <img src={image} alt={urlText} />
+          )}
         </a>
       </div>
     </div>
