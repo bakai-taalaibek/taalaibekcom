@@ -41,7 +41,7 @@ export const TextWithImageScreen = ({
           )}
           <div className="textWithImage__timePeriod">{timePeriod}</div>
         </div>
-        <a href={url} className="textWithImage__image">
+        <a href={url} target="_blank" className="textWithImage__image">
           {isImageClickable ? (
             <Gallery id="rsk" options={options}>
               <Item
