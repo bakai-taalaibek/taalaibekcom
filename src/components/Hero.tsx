@@ -76,7 +76,7 @@ const colors = [
 ]
 
 export const Hero = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const [isSliderActive, setIsSliderActive] = useState(true)
   const [isScrollerActive, setIsScrollerActive] = useState(true)
@@ -90,7 +90,11 @@ export const Hero = () => {
   return (
     <article id="hero" className="hero">
       <div className="hero__main">
-        <div className="introduction">
+        <div
+          className={`introduction ${
+            i18n.language === "ru" && "introduction--ru"
+          }`}
+        >
           <p>{t("Hi")}</p>
           <p>{t("Bakai")}</p>
           <p className="introduction--smaller">{t("Position")}</p>
