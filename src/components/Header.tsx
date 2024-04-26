@@ -3,6 +3,7 @@ import { isElementDominant } from "../lib/helpers"
 
 const Header = () => {
   const [mobileNav, setMobileNav] = useState(false)
+  const [chosenLanguage, setChosenLanguage] = useState<"ru" | "en">("ru")
   const [dominantElement, setDominantElement] = useState<string | null>(null)
   const handleMenu = () => {
     setMobileNav(!mobileNav)
@@ -85,9 +86,25 @@ const Header = () => {
           </nav>
           <div className="header__rightGroup">
             <div className="header__languages">
-              <p className="text">en</p>
-              <p className="text">ru</p>
-              <p className="text">kg</p>
+              <button
+                className={`{text languages__button ${
+                  chosenLanguage === "en" && "languages__button--active"
+                }`}
+                onClick={() => setChosenLanguage("en")}
+              >
+                EN
+              </button>
+              <button
+                className={`{text languages__button ${
+                  chosenLanguage === "ru" && "languages__button--active"
+                }`}
+                onClick={() => setChosenLanguage("ru")}
+              >
+                RU
+              </button>
+              {/* <p className="text">en</p> */}
+              {/* <p className="text">ru</p> */}
+              {/* <p className="text">kg</p> */}
             </div>
             <div className="header__theme">
               <p className="text">dark</p>
