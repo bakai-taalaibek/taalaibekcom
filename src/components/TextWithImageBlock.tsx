@@ -10,7 +10,7 @@ type TProps = {
   timePeriod: string
   image: string
   tags?: string[]
-  urlText?: string
+  alt?: string
   url?: string
   isImageClickable?: boolean
 }
@@ -20,7 +20,7 @@ export const TextWithImageScreen = ({
   timePeriod,
   image,
   tags,
-  urlText,
+  alt,
   url,
   isImageClickable,
 }: TProps) => {
@@ -53,7 +53,7 @@ export const TextWithImageScreen = ({
                 {({ ref, open }) => (
                   <img
                     className="clickableImage__image"
-                    alt={urlText}
+                    alt={alt}
                     ref={ref}
                     onClick={open}
                     src={image}
@@ -62,7 +62,7 @@ export const TextWithImageScreen = ({
               </Item>
             </Gallery>
           ) : (
-            <img src={image} alt={urlText} />
+            <img src={image} alt={alt} />
           )}
         </a>
       </div>

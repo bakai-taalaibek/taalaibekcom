@@ -16,6 +16,7 @@ import { IconSass } from "../icons/IconSass"
 import { IconTS } from "../icons/IconTS"
 import { IconTailwind } from "../icons/IconTailwind"
 import { ColumnOfIcons } from "./ColumnOfIcons"
+import { useTranslation } from "react-i18next"
 
 const rows = [
   [
@@ -75,6 +76,8 @@ const colors = [
 ]
 
 export const Hero = () => {
+  const { t } = useTranslation()
+
   const [isSliderActive, setIsSliderActive] = useState(true)
   const [isScrollerActive, setIsScrollerActive] = useState(true)
   let currentColor = 0
@@ -88,11 +91,11 @@ export const Hero = () => {
     <article id="hero" className="hero">
       <div className="hero__main">
         <div className="introduction">
-          <p>Hi!</p>
-          <p>I am Bakai,</p>
-          <p className="introduction--smaller">Front-End developer</p>
+          <p>{t("Hi")}</p>
+          <p>{t("Bakai")}</p>
+          <p className="introduction--smaller">{t("Position")}</p>
           <button className="introduction__download-resume">
-            Download resume
+            {t("Resume")}
           </button>
         </div>
 

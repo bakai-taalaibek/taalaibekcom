@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from "react"
 import { isElementDominant } from "../lib/helpers"
+import { useTranslation } from "react-i18next"
 
 const Header = () => {
   const [mobileNav, setMobileNav] = useState(false)
-  const [chosenLanguage, setChosenLanguage] = useState<"ru" | "en">("ru")
   const [dominantElement, setDominantElement] = useState<string | null>(null)
+  const { t, i18n } = useTranslation()
+
   const handleMenu = () => {
     setMobileNav(!mobileNav)
   }
@@ -57,7 +59,7 @@ const Header = () => {
                 dominantElement === "hero" && "anchor--highlighted"
               }`}
             >
-              Home
+              {t("Home")}
             </a>
             <a
               href="#experience"
@@ -65,7 +67,7 @@ const Header = () => {
                 dominantElement === "experience" && "anchor--highlighted"
               }`}
             >
-              Experience
+              {t("Experience")}
             </a>
             <a
               href="#education"
@@ -73,7 +75,7 @@ const Header = () => {
                 dominantElement === "education" && "anchor--highlighted"
               }`}
             >
-              Education
+              {t("Education")}
             </a>
             <a
               href="#contacts"
@@ -81,24 +83,24 @@ const Header = () => {
                 dominantElement === "contacts" && "anchor--highlighted"
               }`}
             >
-              Contacts
+              {t("Contacts")}
             </a>
           </nav>
           <div className="header__rightGroup">
             <div className="header__languages">
               <button
                 className={`{text languages__button ${
-                  chosenLanguage === "en" && "languages__button--active"
+                  i18n.language === "en" && "languages__button--active"
                 }`}
-                onClick={() => setChosenLanguage("en")}
+                onClick={() => i18n.changeLanguage("en")}
               >
                 EN
               </button>
               <button
                 className={`{text languages__button ${
-                  chosenLanguage === "ru" && "languages__button--active"
+                  i18n.language === "ru" && "languages__button--active"
                 }`}
-                onClick={() => setChosenLanguage("ru")}
+                onClick={() => i18n.changeLanguage("ru")}
               >
                 RU
               </button>
@@ -130,7 +132,7 @@ const Header = () => {
               dominantElement === "hero" && "anchor--highlighted"
             }`}
           >
-            Home
+            {t("Home")}
           </a>
           <a
             href="#experience"
@@ -138,7 +140,7 @@ const Header = () => {
               dominantElement === "experience" && "anchor--highlighted"
             }`}
           >
-            Experience
+            {t("Experience")}
           </a>
           <a
             href="#education"
@@ -146,7 +148,7 @@ const Header = () => {
               dominantElement === "education" && "anchor--highlighted"
             }`}
           >
-            Education
+            {t("Education")}
           </a>
           <a
             href="#contacts"
@@ -154,7 +156,7 @@ const Header = () => {
               dominantElement === "contacts" && "anchor--highlighted"
             }`}
           >
-            Contacts
+            {t("Contacts")}
           </a>
         </nav>
       </header>

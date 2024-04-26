@@ -1,4 +1,6 @@
 import { Gallery, Item } from "react-photoswipe-gallery"
+import { useTranslation } from "react-i18next"
+
 
 const options = {
   zoom: false,
@@ -6,9 +8,11 @@ const options = {
 }
 
 export const Certificates = () => {
+  const { t } = useTranslation()
+
   return (
     <div className="certificates">
-      <p className="text">My certificates:</p>
+      <p className="text">{t("Certificates")}</p>
       <div className="certificates__groupOfImages">
         <Gallery id="certificates" options={options}>
           <Item
