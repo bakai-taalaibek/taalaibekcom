@@ -106,7 +106,7 @@ const Header = () => {
           <p className="header__menuButtonDecoration"></p>
         </div>
 
-        <nav className="header__mobileNav">
+        <nav className="header__mobileNav" onClick={handleMenu}>
           <a
             href="#hero"
             className={`header__mobileNavItem text anchor ${
@@ -139,10 +139,6 @@ const Header = () => {
           >
             Contacts
           </a>
-          {/* <p className="header__mobileNavItem text">Home</p>
-          <p className="header__mobileNavItem text">Experience</p>
-          <p className="header__mobileNavItem text">Education</p>
-          <p className="header__mobileNavItem text">Contacts</p> */}
         </nav>
       </header>
     </>
