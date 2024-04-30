@@ -6,3 +6,12 @@ html {
   --mainAccentColorLighter: rgb(57, 166, 255);
   --breadCrumbHeight: 40px;
 }
+:root {
+  --background-color: white;
+  --text-color: black;
+}
+
+.theme--dark {
+  --background-color: black;
+  --text-color: white;
+}

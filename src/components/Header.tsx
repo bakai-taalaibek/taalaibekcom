@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useState } from "react"
 import { isElementDominant } from "../lib/helpers"
 import { useTranslation } from "react-i18next"
+import { IconSun } from "../icons/IconSun"
+import { IconMoon } from "../icons/IconMoon"
 
 const Header = () => {
   const [mobileNav, setMobileNav] = useState(false)
   const [dominantElement, setDominantElement] = useState<string | null>(null)
   const { t, i18n } = useTranslation()
+  const [theme, setTheme] = useState("theme--light")
 
   const handleMenu = () => {
     setMobileNav(!mobileNav)
@@ -48,6 +51,16 @@ const Header = () => {
     }
   }, [])
 
+  const toggleTheme = () => {
+    if (theme === "theme--light") {
+      document.getElementById("body")?.classList.add("theme--dark")
+      setTheme("theme--dark")
+    } else {
+      document.getElementById("body")?.classList.remove("theme--light")
+      setTheme("theme--light")
+    }
+  }
+
   return (
     <>
       <header className="header header--desktop">
@@ -87,6 +100,32 @@ const Header = () => {
             </a>
           </nav>
           <div className="header__rightGroup">
+            <div className="header__theme">
+              <button
+                onClick={() => toggleTheme()}
+                className={`themeToggle ${
+                  theme === "theme--dark" && "themeToggle--dark"
+                }`}
+              >
+                <div
+                  className={`themeToggle__circle ${
+                    theme === "theme--dark" && "themeToggle__circle--dark"
+                  }`}
+                ></div>
+                <IconSun
+                  className={`lighter__sun ${
+                    theme === "theme--dark" && "lighter__sun--hidden"
+                  }`}
+                  width="15px"
+                />
+                <IconMoon
+                  className={`lighter__moon ${
+                    theme === "theme--light" && "lighter__moon--hidden"
+                  }`}
+                  width="15px"
+                />
+              </button>
+            </div>
             <div className="header__languages">
               <button
                 className={`{text languages__button ${
@@ -104,13 +143,6 @@ const Header = () => {
               >
                 RU
               </button>
-              {/* <p className="text">en</p> */}
-              {/* <p className="text">ru</p> */}
-              {/* <p className="text">kg</p> */}
-            </div>
-            <div className="header__theme">
-              <p className="text">dark</p>
-              <p className="text">light</p>
             </div>
           </div>
         </div>

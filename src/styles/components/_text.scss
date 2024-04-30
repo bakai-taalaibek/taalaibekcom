@@ -1,5 +1,6 @@
 .text {
   font-family: var(--defaultFont), sans-serif;
+  color: var(--text-color);
 
   &--highlighted {
     color: var(--mainAccentColor);
