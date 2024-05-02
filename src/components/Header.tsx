@@ -100,6 +100,24 @@ const Header = () => {
             </a>
           </nav>
           <div className="header__rightGroup">
+            <div className="header__languages">
+              <button
+                className={`{text languages__button ${
+                  i18n.language === "en" && "languages__button--active"
+                }`}
+                onClick={() => i18n.changeLanguage("en")}
+              >
+                EN
+              </button>
+              <button
+                className={`{text languages__button ${
+                  i18n.language === "ru" && "languages__button--active"
+                }`}
+                onClick={() => i18n.changeLanguage("ru")}
+              >
+                RU
+              </button>
+            </div>
             <div className="header__theme">
               <button
                 onClick={() => toggleTheme()}
@@ -124,24 +142,6 @@ const Header = () => {
                   }`}
                   width="15px"
                 />
-              </button>
-            </div>
-            <div className="header__languages">
-              <button
-                className={`{text languages__button ${
-                  i18n.language === "en" && "languages__button--active"
-                }`}
-                onClick={() => i18n.changeLanguage("en")}
-              >
-                EN
-              </button>
-              <button
-                className={`{text languages__button ${
-                  i18n.language === "ru" && "languages__button--active"
-                }`}
-                onClick={() => i18n.changeLanguage("ru")}
-              >
-                RU
               </button>
             </div>
           </div>
