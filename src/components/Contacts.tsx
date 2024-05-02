@@ -23,7 +23,9 @@ export const Contacts = () => {
         <div className="breadCrumb__content">{t("Contacts")}</div>
       </div>
       <div className="contacts__upper"></div>
-      <div className="contacts__lower"></div>
+      <div className="contacts__lower">
+        © {new Date().getFullYear()} Bakai Taalaibek uulu
+      </div>
       <div className="contacts__centered columns__container">
         <div className="columns__column">
           <p className="contacts__title">{t("ContactMe")}</p>
@@ -75,7 +77,7 @@ export const Contacts = () => {
               onChange={(event) => setComment(event.target.value)}
             />
             <button className="button" onClick={submitComment}>
-            {t("Submit")}
+              {t("Submit")}
             </button>
           </div>
         </div>
