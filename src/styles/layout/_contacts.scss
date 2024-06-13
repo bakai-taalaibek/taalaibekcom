@@ -32,7 +32,7 @@
     transform: translate(-50%, -50%);
     width: 90%;
     height: 75%;
-    background-color: hsl(135, 80%, 80%);
+    background-color: var(--background-color-contacts);
     padding: 20px;
     border-radius: 15px;
   }
@@ -70,6 +70,6 @@
       top: calc(50% + var(--headerLineHeight) / 2);
     }
 
-    background: hsl(200, 100%, 98%);
+    background: var(--background-color-tinted);
   }
 }

@@ -43,7 +43,7 @@
     }
 
     & p {
-      background-image: linear-gradient(-30deg, #191919, #474747, #424242);
+      background-image: var(--text-introduction);
       background-clip: text;
       color: transparent;
     }
@@ -84,7 +84,7 @@
       rgb(62, 118, 228) 100%
     );
     box-shadow: 0 0 15px 3px rgb(216, 216, 216);
-    outline: 5px solid white;
+    outline: 5px solid var(--outline);
     transition: 0.1s;
 
     &:hover {
@@ -112,6 +112,6 @@
 
 @media (min-width: 40rem) {
   .hero {
-    background: hsl(200, 100%, 98%);
+    background: var(--background-color-tinted);
   }
 }

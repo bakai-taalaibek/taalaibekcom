@@ -27,7 +27,7 @@
 
 @media (min-width: 40rem) {
   .education {
-    background: hsl(200, 100%, 98%);
+    background: var(--background-color-tinted);
 
     .certificates {
       min-height: 100svh;

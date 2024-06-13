@@ -2,7 +2,7 @@
   text-decoration: none;
 
   &:visited {
-    color: inherit;
+    color: var(--text-color);
   }
 
   &--highlighted {

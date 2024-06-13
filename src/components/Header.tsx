@@ -56,7 +56,7 @@ const Header = () => {
       document.getElementById("body")?.classList.add("theme--dark")
       setTheme("theme--dark")
     } else {
-      document.getElementById("body")?.classList.remove("theme--light")
+      document.getElementById("body")?.classList.remove("theme--dark")
       setTheme("theme--light")
     }
   }

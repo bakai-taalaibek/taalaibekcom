@@ -28,27 +28,27 @@ export const Contacts = () => {
       </div>
       <div className="contacts__centered columns__container">
         <div className="columns__column">
-          <p className="contacts__title">{t("ContactMe")}</p>
+          <p className="contacts__title text">{t("ContactMe")}</p>
           <div className="contactEntries">
-            <div className="hstack hstack--vcentered">
+            <div className="text hstack hstack--vcentered">
               <IconEmail width="15px" height="max-content" />
               <a className="link" href="mailto:bakai.pochta@gmail.com">
                 bakai.pochta@gmail.com
               </a>
             </div>
-            <div className="hstack hstack--vcentered">
+            <div className="text hstack hstack--vcentered">
               <IconPhone width="15px" height="max-content" />
               <a className="link" href="https://wa.me/996500391990">
                 +996 500 391990
               </a>
             </div>
-            <div className="hstack hstack--vcentered">
+            <div className="text hstack hstack--vcentered">
               <IconTelegram width="15px" height="max-content" />
               <a className="link" href="https://t.me/bakai_abc">
                 t.me/bakai_abc
               </a>
             </div>
-            <div className="hstack hstack--vcentered">
+            <div className="text hstack hstack--vcentered">
               <IconLinkedIn width="15px" height="max-content" />
               <a
                 className="link"
@@ -60,16 +60,16 @@ export const Contacts = () => {
           </div>
         </div>
         <div className="columns__column">
-          <p className="contacts__title">{t("LeaveComment")}</p>
+          <p className="text contacts__title">{t("LeaveComment")}</p>
           <div className="form">
-            <p>{t("Name")}</p>
+            <p className="text">{t("Name")}</p>
             <input
               className="input mb-5"
               placeholder={t("YourName")}
               value={name}
               onChange={(event) => setName(event.target.value)}
             />
-            <p>{t("Comment")}</p>
+            <p className="text">{t("Comment")}</p>
             <textarea
               className="textarea mb-10"
               placeholder={t("YourComment")}

@@ -21,6 +21,9 @@
     flex-direction: column;
     gap: 7px;
   }
+  &__mainText {
+    color: var(--text-color);
+  }
   &__tags {
     color: var(--mainAccentColorLighter);
   }
