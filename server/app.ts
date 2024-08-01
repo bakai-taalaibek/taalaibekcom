@@ -20,7 +20,7 @@ app.get("/ping", (request, response) => {
     "-------------------------------------------------------------------------------------"
   )
   logger.info(request.method, request.body, JSON.stringify(request.headers))
-  response.send("pong-3")
+  response.send("pong-4")
 })
 
 app.get("/*", (_, response) => {
