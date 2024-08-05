@@ -98,9 +98,12 @@ export const Hero = () => {
           <p>{t("Hi")}</p>
           <p>{t("Bakai")}</p>
           <p className="introduction--smaller">{t("Position")}</p>
-          <button className="introduction__download-resume">
+          <a
+            className="introduction__download-resume"
+            href={`/resume/?lang=${i18n.language}`}
+          >
             {t("Resume")}
-          </button>
+          </a>
         </div>
 
         <div

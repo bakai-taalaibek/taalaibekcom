@@ -23,6 +23,19 @@ app.get("/ping", (request, response) => {
   response.send("pong-4")
 })
 
+app.get("/resume", (request, response) => {
+  const filename =
+    request.query.lang === "ru"
+      ? "/files/Таалайбек уулу Бакай - JavaScript разработчик.pdf"
+      : "/files/Bakai Taalaibek uulu - JavaScript Developer.pdf"
+
+  response.sendFile(join(__dirname, filename), (error) => {
+    if (error) {
+      response.status(500).send(error)
+    }
+  })
+})
+
 app.get("/*", (_, response) => {
   response.sendFile(join(__dirname, "/../dist/index.html"), (error) => {
     if (error) {
