@@ -4,6 +4,7 @@ import { join } from "path"
 import logger from "./utils/logger"
 import { fileURLToPath } from "url"
 import { dirname } from "path"
+import { google } from "googleapis"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -15,12 +16,29 @@ app.use(express.json())
 
 app.use(express.static("dist"))
 
+const auth = new google.auth.GoogleAuth({
+  keyFile: "credentials.json", //the key file
+  //url to spreadsheets API
+  scopes: "https://www.googleapis.com/auth/spreadsheets",
+})
+
+let authClientObject
+;(async () => {
+  authClientObject = await auth.getClient()
+})()
+
+const googleSheetsInstance = google.sheets({
+  version: "v4",
+  auth: authClientObject,
+})
+const spreadsheetId = "1mdArEIERdtNwwzImehA7VuPV6iK5olFBvGQmvSLLwKQ"
+
 app.get("/ping", (request, response) => {
   logger.info(
     "-------------------------------------------------------------------------------------"
   )
   logger.info(request.method, request.body, JSON.stringify(request.headers))
-  response.send("pong-4")
+  response.send("pong")
 })
 
 app.get("/resume", (request, response) => {
@@ -33,6 +51,20 @@ app.get("/resume", (request, response) => {
     if (error) {
       response.status(500).send(error)
     }
+  })
+})
+
+app.get("/review", async (request, response) => {
+  console.log("1")
+  //write data into the google sheets
+  await googleSheetsInstance.spreadsheets.values.append({
+    spreadsheetId,
+    valueInputOption: "RAW",
+    auth,
+    range: "Sheet1!A:B", //sheet name and range of cells
+    requestBody: {
+      values: [["Git followers tutorial", "Mia Roberts"]],
+    },
   })
 })
 
