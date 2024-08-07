@@ -5,6 +5,7 @@ import logger from "./utils/logger"
 import { fileURLToPath } from "url"
 import { dirname } from "path"
 import { google } from "googleapis"
+import "dotenv/config"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -16,9 +17,18 @@ app.use(express.json())
 
 app.use(express.static("dist"))
 
+const parseJson = (stringJson?: string) => {
+  if (stringJson) {
+    try {
+      return JSON.parse(stringJson)
+    } catch (error) {
+      logger.error(error)
+    }
+  }
+}
+
 const auth = new google.auth.GoogleAuth({
-  keyFile: "credentials.json", //the key file
-  //url to spreadsheets API
+  credentials: parseJson(process.env.GOOGLE_APPLICATION_CREDENTIALS),
   scopes: "https://www.googleapis.com/auth/spreadsheets",
 })
 
@@ -31,7 +41,6 @@ const googleSheetsInstance = google.sheets({
   version: "v4",
   auth: authClientObject,
 })
-const spreadsheetId = "1mdArEIERdtNwwzImehA7VuPV6iK5olFBvGQmvSLLwKQ"
 
 app.get("/ping", (request, response) => {
   logger.info(
@@ -55,17 +64,17 @@ app.get("/resume", (request, response) => {
 })
 
 app.get("/review", async (request, response) => {
-  console.log("1")
-  //write data into the google sheets
-  await googleSheetsInstance.spreadsheets.values.append({
-    spreadsheetId,
+  const result = await googleSheetsInstance.spreadsheets.values.append({
+    spreadsheetId: process.env.SHEET_ID,
     valueInputOption: "RAW",
     auth,
-    range: "Sheet1!A:B", //sheet name and range of cells
+    range: process.env.SHEET_RANGE,
     requestBody: {
-      values: [["Git followers tutorial", "Mia Roberts"]],
+      values: [["Git followers tutorial", "Mia Roberts5"]],
     },
   })
+  const updatedRaw = result.data.updates?.updatedRange?.match(/(\d+):/)?.[1]
+  response.send(updatedRaw)
 })
 
 app.get("/*", (_, response) => {
