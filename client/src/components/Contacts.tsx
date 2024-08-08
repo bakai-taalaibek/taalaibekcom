@@ -4,6 +4,7 @@ import { IconLinkedIn } from "../icons/IconLinkedIn"
 import { IconPhone } from "../icons/IconPhone"
 import { IconTelegram } from "../icons/IconTelegram"
 import { useTranslation } from "react-i18next"
+import { URL } from "../constants"
 
 export const Contacts = () => {
   const { t } = useTranslation()
@@ -11,10 +12,25 @@ export const Contacts = () => {
   const [name, setName] = useState("")
   const [comment, setComment] = useState("")
 
-  const submitComment = () => {
-    alert(`${name}, ${comment}`)
+  const submitComment = async () => {
+    const response = await fetch(`${URL}/api/review`, {
+      method: "POST",
+      body: JSON.stringify({ name, comment }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    const responseBody = await response.json()
+
     setName("")
     setComment("")
+    if (response.ok) {
+      alert(
+        `Спасибо, Ваш отзыв зарегистрирован под номером ${responseBody.rowNumber}`
+      )
+    } else {
+      alert("Произошла какая-то ошибка")
+    }
   }
 
   return (

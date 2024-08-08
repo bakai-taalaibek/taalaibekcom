@@ -63,18 +63,19 @@ app.get("/resume", (request, response) => {
   })
 })
 
-app.get("/review", async (request, response) => {
+app.post("/api/review", async (request, response) => {
+  console.log(request)
   const result = await googleSheetsInstance.spreadsheets.values.append({
     spreadsheetId: process.env.SHEET_ID,
     valueInputOption: "RAW",
     auth,
-    range: process.env.SHEET_RANGE,
+    range: "Sheet1!A:B",
     requestBody: {
-      values: [["Git followers tutorial", "Mia Roberts5"]],
+      values: [[request.body.name, request.body.comment, new Date()]],
     },
   })
   const updatedRaw = result.data.updates?.updatedRange?.match(/(\d+):/)?.[1]
-  response.send(updatedRaw)
+  response.send({ rowNumber: updatedRaw })
 })
 
 app.get("/*", (_, response) => {
