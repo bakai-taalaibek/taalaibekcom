@@ -27,7 +27,7 @@ const Header = () => {
     contacts = document.getElementById("contacts")
     window.addEventListener("scroll", () => {
       if (timer !== null) clearTimeout(timer)
-      timer = setTimeout(isElementDominantMemo, 30)
+      timer = window.setTimeout(isElementDominantMemo, 30)
     })
   }, [])
 
