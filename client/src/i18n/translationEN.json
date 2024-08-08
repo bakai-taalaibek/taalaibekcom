@@ -29,5 +29,7 @@
   "Comment": "Comment",
   "Submit": "Submit",
   "YourName": "Your name",
-  "YourComment": "Leave your comment here"
+  "YourComment": "Leave your comment here",
+  "ReviewRegistration": "Thank you, your review has been saved as number",
+  "ReviewError": "Something went wrong"
 }

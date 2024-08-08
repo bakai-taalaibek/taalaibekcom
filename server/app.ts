@@ -64,18 +64,30 @@ app.get("/resume", (request, response) => {
 })
 
 app.post("/api/review", async (request, response) => {
-  console.log(request)
+  const currentDataAndTime = new Date()
   const result = await googleSheetsInstance.spreadsheets.values.append({
     spreadsheetId: process.env.SHEET_ID,
     valueInputOption: "RAW",
     auth,
     range: "Sheet1!A:B",
     requestBody: {
-      values: [[request.body.name, request.body.comment, new Date()]],
+      values: [
+        [
+          request.body.name,
+          request.body.comment,
+          currentDataAndTime.toLocaleDateString("ru"),
+          currentDataAndTime.toLocaleTimeString("ru"),
+        ],
+      ],
     },
   })
   const updatedRaw = result.data.updates?.updatedRange?.match(/(\d+):/)?.[1]
-  response.send({ rowNumber: updatedRaw })
+
+  if (updatedRaw) {
+    response.send({ rowNumber: 100 + Number(updatedRaw) })
+  } else {
+    response.status(500).send("Something went wrong")
+  }
 })
 
 app.get("/*", (_, response) => {

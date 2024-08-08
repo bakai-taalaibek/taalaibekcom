@@ -25,11 +25,9 @@ export const Contacts = () => {
     setName("")
     setComment("")
     if (response.ok) {
-      alert(
-        `Спасибо, Ваш отзыв зарегистрирован под номером ${responseBody.rowNumber}`
-      )
+      alert(t("ReviewRegistration") + " " + responseBody.rowNumber)
     } else {
-      alert("Произошла какая-то ошибка")
+      alert(t("ReviewError"))
     }
   }
 
