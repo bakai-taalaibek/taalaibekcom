@@ -17,18 +17,8 @@ app.use(express.json())
 
 app.use(express.static("dist"))
 
-const parseJson = (stringJson?: string) => {
-  if (stringJson) {
-    try {
-      return JSON.parse(stringJson)
-    } catch (error) {
-      logger.error(error)
-    }
-  }
-}
-
 const auth = new google.auth.GoogleAuth({
-  credentials: parseJson(process.env.GOOGLE_APPLICATION_CREDENTIALS),
+  credentials: JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS || ""),
   scopes: "https://www.googleapis.com/auth/spreadsheets",
 })
 
@@ -43,9 +33,7 @@ const googleSheetsInstance = google.sheets({
 })
 
 app.get("/ping", (request, response) => {
-  logger.info(
-    "-------------------------------------------------------------------------------------"
-  )
+  logger.info("---------------------------------------------------------------")
   logger.info(request.method, request.body, JSON.stringify(request.headers))
   response.send("pong")
 })
